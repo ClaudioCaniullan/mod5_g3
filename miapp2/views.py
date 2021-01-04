@@ -149,6 +149,7 @@ def grafico2(request):
             cuerdas = elemento.get('cuerdas')
             lista.append(cuerdas)
     context = {'valor' : lista}
+    
     return render(request, "formularios/grafico2.html", context)
 
         
