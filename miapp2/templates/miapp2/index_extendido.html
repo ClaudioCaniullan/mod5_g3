@@ -1,0 +1,151 @@
+<!-- ESTE ARCHIVO RENDERIZADO EXTIENDO A INDEX BASE -->
+{% extends 'miapp2/index_base.html'%}
+{% load static %}
+
+
+
+
+
+
+{% block competencias %}
+<div class="container-fluid bg-dark" id="competencias"> 
+    <div class="row">
+      <h3>
+        Nuestras Competencias
+      </h3>
+    </div>
+
+    <div class="row">
+    {% for element1 in numeros_a %}
+      <div class="col-md-6 col-lg-3">
+        
+        <div class="card">
+          <h3 class="card-header">Competencia {{element1}}</h3>
+          <div class="card-body">
+            <h4 class="card-title">Subtítitulo competencia </h4>
+            <p class="card-text">Descripción de la competencia del 
+                grupo Full Stack Python de Awakelab.</p>
+            <a href="#!" class="btn btn-dark">Ver mas</a>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+    </div>
+    
+    <div class="row">
+    {% for element2 in numeros_b %}
+      <div class="col-md-4">
+        <div class="card">
+          <h3 class="card-header">Competencia {{element2}}</h3>
+          <div class="card-body">
+            <h4 class="card-title">Subtítitulo competencia</h4>
+            <p class="card-text">Descripción de la competencia del 
+              grupo Full Stack Python de Awakelab.</p>
+            <a href="#!" class="btn btn-dark">Ver mas</a>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+    </div>
+  
+</div>
+{% endblock %}
+
+
+
+
+{% block enlaces %}
+    <!-- Section: Enlaces -->
+    <div class="container-fluid bg-dark" id="enlaces">
+      <div class="row">
+          <h3>{{linkTitulo}}</h3>
+      </div>
+	  {%for nrow in linkrows %}
+		<div class="row">
+			{%for ncol in linkcols %}
+				<div class="col-md-6">
+					<div class="media">
+					
+					<!-- Selección de img a mostrar -->
+					<!-- Fila 1-->
+					{% if nrow == 1 %}
+						<!-- img columna 1 -->
+						{% if ncol == 1 %}
+						<img class="d-flex mr-3" src="{% static "../static/img/flag-64.png" %}" alt="Generic placeholder  image">	
+						{% endif %}
+						<!-- img columna 2 -->
+						{% if ncol == 2 %}
+						<img class="d-flex mr-3" src="{% static "../static/img/world-64.png" %}" alt="Generic placeholder  image">
+						{% endif %}
+					{% endif %}
+					
+					<!-- Fila 2-->
+					{% if nrow == 2 %}
+						<!-- img columna 1 -->
+						{% if ncol == 1 %}
+						<img class="d-flex mr-3" src="{% static "../static/img/screen-64.png" %}" alt="Generic placeholder  image">
+						{% endif %}
+						<!-- img columna 2 -->
+						{% if ncol == 2 %}
+						<img class="d-flex mr-3" src="{% static "../static/img/gear-64.png" %}" alt="Generic placeholder  image">
+						{% endif %}
+					{% endif %}
+					
+						<div class="media-body">
+							<h5 class="mt-0">{{link_txt0}}<!--contador--></h5>
+							<ul>
+							{% for r4 in link_range4%}
+								<li>{{link_txt1}}<a href="#">{{link_txt2}}</a></li>
+							{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	  {% endfor %}
+	</div>   
+    <!-- End Section: Enlaces -->
+  {% endblock %}
+
+
+  {% block contacto %}
+    <!-- Section: Contacto -->
+    <div class="container-fluid bg-light" id="contacto">
+      <div class="row">
+        <h2>{{conTitulo}}</h2>
+      </div>
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-sm-6" id="contact-form">
+		
+          <form>
+			{% for k,v in con_txtrange.items %}
+				<div class="form-group">
+				{% if k == '1' %}
+					<label for="contact-name">{{v}}</label>
+					<input type="text" class="form-control" id="contact-name" placeholder="Tu Nombre">
+				{% elif k == '2' %}
+					<label for="contact-email">{{v}}</label>
+					<input type="email" class="form-control" id="contact-email" placeholder="Tu Email">
+				{% else %}
+					<label for="contact-msg">{{v}}</label>
+					<textarea class="form-control" id="contact-msg" placeholder="Tu Mensaje" rows="4"></textarea>
+				{% endif %}
+				</div>
+			{% endfor %}
+            <div class="btn-group">
+				{% for b in con_txtbtn %}
+					<button type="button" class="btn btn-outline-secondary">{{b}}</button>
+				{% endfor %}
+
+            </div>
+          </form>
+		  
+        </div>
+      </div>
+    </div>
+    <!-- End Section: Contacto -->
+    {% endblock %}
+
+
+  

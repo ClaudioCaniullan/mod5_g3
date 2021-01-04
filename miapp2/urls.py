@@ -5,8 +5,9 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.mostrar_index2),
-    path("index/", views.index),
-
+    path("extendido/", views.mostrar_extendido),
+    path("base/", views.mostrar_base),
+    path("contacto/", views.contacto),
+  
 ]
 

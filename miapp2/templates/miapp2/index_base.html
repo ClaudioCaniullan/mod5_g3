@@ -1,5 +1,5 @@
 <!-- ESTE ES EL ARCHIVO BASE QUE SERA EXTENDIDO EN INDEX 2 -->
-{% load static %}
+
 <html lang="es">
 
   <head>
@@ -8,7 +8,7 @@
     <meta name="viewport" 
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
+    {% load static %}
     <!-- Loading Bootstrap CSS -->
     <link 
       rel="stylesheet" 
@@ -104,6 +104,10 @@
               </div>
             </li>
          </ul>
+         
+
+
+         <!-- TAREA implementar un contador de palabras repetidas -->
          <form class="form-inline my-2 my-lg-0">
            <input class="form-control mr-sm-2" 
               type="text"
@@ -113,6 +117,8 @@
                     font-weight-bold text-white my-2 my-sm-0"
                     type="submit">Search</button>
          </form>
+
+
       </div>
       <!-- Navigation Links -->
     </nav>
@@ -131,6 +137,8 @@
     </div>
     <!-- End Section: Principal -->
 
+    <!-- TAREA implementar metodo agregar contenido  -->
+    {% block competencias %}
     <!-- Section: Competencias -->
     <div class="container-fluid bg-dark" id="competencias">
       <div class="row">
@@ -219,7 +227,11 @@
       </div>
     </div>
     <!-- End Section: Competencias -->
+    {% endblock %}
 
+    
+    <!-- TAREA implementar metodo agregar imagen -->
+    {% block equipo %}
     <!-- Section: Equipo -->
     <div class="container-fluid bg-light" id="equipo">
       <div class="row">
@@ -274,104 +286,127 @@
         </div>
       </div>
     </div>
-    
-<!-- ******************************     -->
 <!-- End Section: Equipo -->
+{% endblock%}
 
+
+{% block enlaces %}
     <!-- Section: Enlaces -->
     <div class="container-fluid bg-dark" id="enlaces">
       <div class="row">
-          <h3>{{linkTitulo}}</h3>
+          <h3>Enlaces de Interés</h3>
       </div>
-	  {%for nrow in linkrows %}
-		<div class="row">
-			{%for ncol in linkcols %}
-				<div class="col-md-6">
-					<div class="media">
-					
-					<!-- Selección de img a mostrar -->
-					<!-- Fila 1-->
-					{% if nrow == 1 %}
-						<!-- img columna 1 -->
-						{% if ncol == 1 %}
-						<img class="d-flex mr-3" src="{% static "../static/img/flag-64.png" %}" alt="Generic placeholder  image">	
-						{% endif %}
-						<!-- img columna 2 -->
-						{% if ncol == 2 %}
-						<img class="d-flex mr-3" src="{% static "../static/img/world-64.png" %}" alt="Generic placeholder  image">
-						{% endif %}
-					{% endif %}
-					
-					<!-- Fila 2-->
-					{% if nrow == 2 %}
-						<!-- img columna 1 -->
-						{% if ncol == 1 %}
-						<img class="d-flex mr-3" src="{% static "../static/img/screen-64.png" %}" alt="Generic placeholder  image">
-						{% endif %}
-						<!-- img columna 2 -->
-						{% if ncol == 2 %}
-						<img class="d-flex mr-3" src="{% static "../static/img/gear-64.png" %}" alt="Generic placeholder  image">
-						{% endif %}
-					{% endif %}
-					
-						<div class="media-body">
-							<h5 class="mt-0">{{link_txt0}}<!--contador--></h5>
-							<ul>
-							{% for r4 in link_range4%}
-								<li>{{link_txt1}}<a href="#">{{link_txt2}}</a></li>
-							{% endfor %}
-							</ul>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	  {% endfor %}
-	</div>   
+      <div class="row">
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="img/flag-64.png" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 1</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="img/world-64.png" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 2</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="img/screen-64.png" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 3</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="img/gear-64.png" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 4</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- End Section: Enlaces -->
+    {% endblock %}
 
+
+    {% block contacto %}
     <!-- Section: Contacto -->
     <div class="container-fluid bg-light" id="contacto">
       <div class="row">
-        <h2>{{conTitulo}}</h2>
+        <h2>Contáctanos</h2>
       </div>
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-sm-6" id="contact-form">
-		
           <form>
-			{% for k,v in con_txtrange.items %}
-				<div class="form-group">
-				{% if k == '1' %}
-					<label for="contact-name">{{v}}</label>
-					<input type="text" class="form-control" id="contact-name" placeholder="Tu Nombre">
-				{% elif k == '2' %}
-					<label for="contact-email">{{v}}</label>
-					<input type="email" class="form-control" id="contact-email" placeholder="Tu Email">
-				{% else %}
-					<label for="contact-msg">{{v}}</label>
-					<textarea class="form-control" id="contact-msg" placeholder="Tu Mensaje" rows="4"></textarea>
-				{% endif %}
-				</div>
-			{% endfor %}
+            <div class="form-group">
+              <label for="contact-name">Nombre</label>
+              <input type="text" class="form-control" id="contact-name" 
+                  placeholder="Tu Nombre">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" class="form-control" id="contact-email" 
+                  placeholder="Tu Email">
+            </div>
+            <div class="form-group">
+              <label for="contact-msg">Email</label>
+              <textarea class="form-control" id="contact-msg" 
+                  placeholder="Tu Mensaje" rows="4"></textarea>
+            </div>
             <div class="btn-group">
-				{% for b in con_txtbtn %}
-					<button type="button" class="btn btn-outline-secondary">{{b}}</button>
-				{% endfor %}
-
+              <button type="button" class="btn btn-outline-secondary">Enviar</button>
+              <button type="button" class="btn btn-outline-secondary">Limpiar</button>
             </div>
           </form>
-		  
         </div>
       </div>
     </div>
     <!-- End Section: Contacto -->
+    {% endblock %}
 
 
-
+    {% block footer %}
     <footer class="footer bg-dark text-center">
       <p class="text-muted">&copy; 2020 Awakelab.</p>
       <p class="text-muted">Grupo Full Stack Python</p>
     </footer>
+    {% endblock %}
 
     <!-- MODAL FORMS -->
     <div class="modal" id="profile-modal" role="dialog">
