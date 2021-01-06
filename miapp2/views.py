@@ -43,7 +43,9 @@ def mostrar_extendido(request):
     return render(request, 'miapp2/index_extendido.html', context=datos)
 
 
-# TAREA terminar metodo contacto 
+# PENDIENTE TAREA 1 terminar metodo contacto falta un generador de email dados
+# el nombre y apellido
+
 def contacto(request):
     formulario = Contacto(request.POST or None)
 
@@ -62,7 +64,11 @@ def contacto(request):
     return render(request, 'miapp2/contacto.html', context)
 
 
-# TAREA terminar metodo contador de palabras repetidas
+
+
+# LAS SIGUIENTES VISTAS DEBEN SER IMPLEMENTADAS EN INDEX.HTML
+
+# PENDIENTE TAREA 2 terminar metodo contador de palabras repetidas en seccion SEARCH
 def contador_palabras(request):
     
     formulario = Palabra(request.POST or None)
@@ -81,13 +87,14 @@ def contador_palabras(request):
     return render(request, 'miapp2/index_base.html', context)
 
 
-# TAREA terminar metodo agregar imagen
+
+# PENDIENTE TAREA 3 crear metodo agregar imagen en SECCION CARRUSEL
 def agregar_imagen(request):
     return render(request, 'miapp2/index_base.html', context)
 
 
 
-# TAREA terminar metodo agregar contenido de texto
+# PENDIENTE TAREA 4 crear metodo agregar contenido de texto en seccion COMPETENCIAS
 def agregar_contenido(request):
     return render(request, 'miapp2/index_base.html', context)
 
