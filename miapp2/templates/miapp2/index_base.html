@@ -108,15 +108,29 @@
 
 
          <!-- TAREA implementar un contador de palabras repetidas -->
-         <form class="form-inline my-2 my-lg-0">
+
+         <form action="" method="post" novalidate>
+          {% csrf_token %}
+          <table border="1">
+              {{form.as_table}}
+          </table>
+          <input type="submit" value="Submit">
+        </form>
+         
+
+         
+         <form class="form-inline my-2 my-lg-0" action="" method="post" novalidate>
+
            <input class="form-control mr-sm-2" 
               type="text"
               placeholder="Search" 
               aria-label="Search">
+              
            <button class="btn btn-outline-success border-dark 
                     font-weight-bold text-white my-2 my-sm-0"
                     type="submit">Search</button>
          </form>
+        
 
 
       </div>
@@ -125,6 +139,7 @@
     <!-- End Navigation Bar -->
 
     <!-- Section: Principal -->
+
     <div class="container-fluid bg-principal" id="principal">
       <div class="row">
         <div class="col-sm-12">
@@ -144,7 +159,9 @@
       <div class="row">
         <h3>Nuestras Competencias</h3>
       </div>
+
       <div class="row">
+        
         <div class="col-md-6 col-lg-3">
           <div class="card">
             <h3 class="card-header">Competencia 1</h3>

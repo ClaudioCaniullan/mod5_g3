@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from .forms import PrimerFormulario, Contacto
+from .forms import PrimerFormulario, Contacto, Palabra
 from django.conf import settings
 import json
 
@@ -46,38 +46,55 @@ def mostrar_extendido(request):
 # TAREA terminar metodo contacto 
 def contacto(request):
     formulario = Contacto(request.POST or None)
-    context = {'form': formulario}
-    
+
     if formulario.is_valid():
         form_data = formulario.cleaned_data
-        #form_data['fecha_compra']=form_data['fecha_compra'].strftime("%Y-%m-%d")
 
-        filename= "static/data/guitarras.json"
+        filename= "/miapp2/static/miapp2/data/lista_contacto.json"
         with open(str(settings.BASE_DIR)+filename, 'r') as file:
-            guitarras=json.load(file)
-        #form_data['id'] = guitarras['ultimo_id_generado'] + 1
-        #guitarras['ultimo_id_generado'] = form_data['id']
-        guitarras['contacto'].append(form_data)
-        with open(str(settings.BASE_DIR)+filename, 'w') as file:
-            json.dump(guitarras, file)
-        #return redirect('formularios:crear_exitoso')
+            lista_contacto=json.load(file)
 
+        lista_contacto['contacto'].append(form_data)
+        with open(str(settings.BASE_DIR)+filename, 'w') as file:
+            json.dump(lista_contacto, file)
+
+    context = {'form': formulario}
     return render(request, 'miapp2/contacto.html', context)
 
 
-# TAREA terminar metodo contador de palabras repetidas 
- def contador_palabras(resquest):
-     pass 
+# TAREA terminar metodo contador de palabras repetidas
+def contador_palabras(request):
+    
+    formulario = Palabra(request.POST or None)
+    if formulario.is_valid():
+        form_data = formulario.cleaned_data
+
+        filename= "/miapp2/static/miapp2/data/lista_palabras.json"
+        with open(str(settings.BASE_DIR)+filename, 'r') as file:
+            lista_palabras=json.load(file)
+
+        lista_palabras['palabras'].append(form_data)
+        with open(str(settings.BASE_DIR)+filename, 'w') as file:
+            json.dump(lista_palabras, file)
+             
+    context = {'form': formulario}
+    return render(request, 'miapp2/index_base.html', context)
 
 
 # TAREA terminar metodo agregar imagen
- def agregar_imagen(resquest):
-     pass
+def agregar_imagen(request):
+    return render(request, 'miapp2/index_base.html', context)
+
 
 
 # TAREA terminar metodo agregar contenido de texto
- def agregar_contenido(resquest):
-     pass
+def agregar_contenido(request):
+    return render(request, 'miapp2/index_base.html', context)
+
+
+
+
+
 
 
 # CODIGO DEL PROFE 
@@ -149,7 +166,7 @@ def grafico2(request):
             cuerdas = elemento.get('cuerdas')
             lista.append(cuerdas)
     context = {'valor' : lista}
-    
+
     return render(request, "formularios/grafico2.html", context)
 
         

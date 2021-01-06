@@ -8,6 +8,7 @@ urlpatterns = [
     path("extendido/", views.mostrar_extendido),
     path("base/", views.mostrar_base),
     path("contacto/", views.contacto),
+    path("palabras/", views.contador_palabras),
   
 ]
 

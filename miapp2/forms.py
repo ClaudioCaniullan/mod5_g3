@@ -17,6 +17,10 @@ class Contacto(forms.Form):
     nombre = forms.CharField()
     apellido = forms.CharField()
 
+class Palabra(forms.Form):
+    palabra = forms.CharField()
+
+
 
 
 
