@@ -4,21 +4,19 @@ from django.core.exceptions import ValidationError
 import datetime
 
 
-def validar_fecha(fecha):
-    fecha_menor = datetime.datetime.strptime("2020-12-01", "%Y-%m-%d").date()
-    fecha_mayor = datetime.datetime.strptime("2020-12-31", "%Y-%m-%d").date()
-    if fecha_menor <= fecha <= fecha_mayor:
-        return fecha
-    else:
-        raise ValidationError("Sólo fechas de diciembre 2020")
 
-# crar formulario contacto
+# formulario contacto para vista contacto
 class Contacto(forms.Form):
     nombre = forms.CharField()
     apellido = forms.CharField()
 
+# formulario Palabra para vista contador de palabras
 class Palabra(forms.Form):
     palabra = forms.CharField()
+
+# TAREAS PENDIENTES faltan crear otros dos formularios para las vistas
+# agregar imagen y agregar contenido
+
 
 
 
